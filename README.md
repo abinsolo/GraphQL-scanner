@@ -36,7 +36,9 @@ Test Against Juice Shop
 sudo docker run -d -p 3000:3000 bkimminich/juice-shop
 python3 graphql_scanner.py -u http://localhost:3000/api/graphql --discover
 
-#Demo
+## Demo
+
+
 ![GraphQL Scanner Demo](screenshots/demo.png)
 
 Legal
