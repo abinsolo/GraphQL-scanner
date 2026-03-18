@@ -39,7 +39,7 @@ python3 graphql_scanner.py -u http://localhost:3000/api/graphql --discover
 ## Demo
 
 
-![GraphQL Scanner Demo](screenshots/demo.png)
+![GraphQL-scanner Demo](screenshots/demo.png)
 
 Legal
 Only test targets you have explicit permission to test.
