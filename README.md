@@ -16,13 +16,13 @@ security checks found in real-world bug bounty programs.
 
 # Installation
 
-git clone https://github.com/abinsolo/graphql-scanner
-cd graphql-scanner
-pip3 install -r requirements.txt
+- git clone https://github.com/abinsolo/graphql-scanner
+- cd graphql-scanner
+- pip3 install -r requirements.txt
 
 ---
 
-#Usage
+# Usage
 
 ## Full scan
 -python3 graphql_scanner.py -u http://target.com/graphql
@@ -42,16 +42,19 @@ pip3 install -r requirements.txt
 - python3 graphql_scanner.py -u http://localhost:3000/api/graphql --discover
 
 ---
+
 # Demo
 
 
 ![GraphQL-scanner Demo](screenshots/demo.png)
 
 ---
+
 # Legal
 Only test targets you have explicit permission to test.
 
 ---
+
 # Author
 Abin A - Bug Bounty Researcher | Penetration Tester
 - LinkedIn: linkedin.com/in/abin-a-937196382
